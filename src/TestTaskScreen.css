@@ -1,0 +1,250 @@
+/* Сброс стилей + CSS-переменные для упрощения настройки */
+:root {
+    --primary-color: #4a00e0;
+    --secondary-color: #8e2de2;
+    --text-color-dark: #333;
+    --text-color-light: #fff;
+    --bg-overlay: rgba(255, 255, 255, 0.2);
+    --bg-container: rgba(255, 255, 255, 0.95);
+    --bg-box: rgba(255, 255, 255, 0.98);
+    --border-color: rgba(255, 255, 255, 0.5);
+    --shadow-light: 6px 6px 10px rgba(0, 0, 0, 0.1);
+    --shadow-dark: 6px 6px 6px rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s;
+    --font-base: "Courier New", monospace;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: var(--font-base);
+    line-height: 1.6;
+    color: var(--text-color-dark);
+    background: var(--primary-color);
+  }
+  
+  /* Фон с градиентом; центрирование содержимого */
+  .gradient-background {
+    min-height: 100vh;
+    background: linear-gradient(to bottom right, var(--secondary-color), var(--primary-color));
+    padding: 2rem;
+    display: flex;
+    align-items: center;        /* Центрирование по вертикали */
+    justify-content: center;    /* Центрирование по горизонтали */
+    position: relative;
+  }
+  
+  /* Декоративная фигура */
+  .abstract-shape {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: var(--bg-overlay);
+    border-radius: 50%;
+    top: -50px;
+    right: -50px;
+    transform: rotate(45deg);
+  }
+  
+  /* Основной контейнер формы */
+  .container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--bg-container);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Шапка */
+  .header-box {
+    text-align: center;
+    background: var(--bg-box);
+    border-radius: 20px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-light);
+    color: var(--text-color-dark);
+  }
+  
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .timer {
+    font-size: 1.2rem;
+    color: #666; /* Лёгкий акцент */
+    margin-bottom: 1rem;
+  }
+  
+  .note {
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  /* Вопросы */
+  .question-box {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-dark);
+    text-align: left; /* Чтобы текст в вопросах и ответах был удобнее читать */
+  }
+  
+  .question {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-color-dark);
+  }
+  
+  .hint {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 1rem;
+  }
+  
+  /* Поле ввода */
+  .input {
+    width: 100%;
+    font-size: 1rem;
+    color: var(--text-color-dark);
+    min-height: 80px;
+    border-radius: 10px;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    background-color: #fff;
+    resize: vertical;
+    transition: border var(--transition-speed);
+  }
+  
+  .input:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+  }
+  
+  /* Кнопка */
+  .button {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 20px;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color-dark);
+    cursor: pointer;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+    display: block;
+    margin: 1rem auto 0;  /* Кнопка по центру */
+    width: 200px;
+    box-shadow: var(--shadow-dark);
+    text-align: center;
+  }
+  
+  .button:hover,
+  .button:focus {
+    background-color: #f0f0f0;
+    transform: translateY(-3px);
+  }
+  
+  /* Адаптивность для планшетов (макс. ширина 768px) */
+  @media (max-width: 768px) {
+    .container {
+      padding: 1.5rem;
+    }
+    .title {
+      font-size: 1.75rem;
+    }
+    .subtitle {
+      font-size: 1.3rem;
+    }
+    .timer {
+      font-size: 1.1rem;
+    }
+    .note {
+      font-size: 0.95rem;
+    }
+    .question {
+      font-size: 1rem;
+    }
+    .hint {
+      font-size: 0.9rem;
+    }
+    .input {
+      font-size: 0.95rem;
+      min-height: 70px;
+    }
+    .button {
+      font-size: 1rem;
+      padding: 0.85rem;
+    }
+  }
+  
+  /* Адаптивность для смартфонов (макс. ширина 480px) */
+  @media (max-width: 480px) {
+    .abstract-shape {
+      display: none;
+    }
+    .container {
+      max-width: 100%;
+      margin: 0;
+      padding: 1rem;
+      box-shadow: none;
+    }
+    .header-box {
+      margin-bottom: 1rem;
+      padding: 1rem;
+      box-shadow: none;
+    }
+    .question-box {
+      margin-bottom: 1rem;
+      padding: 1rem;
+      border-radius: 10px;
+    }
+    .title {
+      font-size: 1.5rem;
+    }
+    .subtitle {
+      font-size: 1.2rem;
+    }
+    .timer {
+      font-size: 1rem;
+    }
+    .note {
+      font-size: 0.9rem;
+    }
+    .question {
+      font-size: 1rem;
+    }
+    .hint {
+      font-size: 0.85rem;
+    }
+    .input {
+      font-size: 0.9rem;
+      min-height: 60px;
+      padding: 0.5rem;
+    }
+    .button {
+      font-size: 1rem;
+      padding: 0.75rem;
+      border-radius: 10px;
+      width: 100%; /* Можно растянуть на всю ширину */
+    }
+  }
+  
